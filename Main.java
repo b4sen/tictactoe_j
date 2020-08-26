@@ -25,10 +25,14 @@ class Main {
             String[] temp = idx.split(" ");
             int x = Integer.parseInt(temp[0]);
             int y = Integer.parseInt(temp[1]);
-            if(xTurn){
+            if(xTurn && arr[x][y] == " "){
                 arr[x][y] = "X";
-            }else{
+            }else if(!xTurn && arr[x][y] == " "){
                 arr[x][y] = "O";
+            }else{
+              System.out.println("Position already filled!");
+              xTurn = !xTurn;
+              steps--;
             }
             
             printField(arr);
